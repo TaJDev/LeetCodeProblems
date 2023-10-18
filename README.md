@@ -1,2 +1,1 @@
-# LeetCodeProblems
-This repository is for storing LeetCode Problems for Tutoring. [Just my own rushed solutions not optimized]
+[![GitHub Streak](https://streak-stats.demolab.com/?user=TaJDev)](https://git.io/streak-stats)
