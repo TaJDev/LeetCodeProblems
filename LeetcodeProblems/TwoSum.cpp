@@ -1,23 +1,27 @@
 // https://leetcode.com/problems/two-sum/solutions/4170755/c/
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        // Variables
-        vector<int> output; // For Output Later
-        int size = nums.size(); // Needed for looping through vector
-        bool done = false; // Just a little boolean for breaking
+    vector<int> twoSum(vector<int>& nums, int target) 
+    {
+        // Given an array of integers nums and an integer target
+        vector<int> indices; 
+        unsigned int count = nums.size();
         
-        for(int i = 0; i < size; i++) { // Grab a number (will do all the nums)
-            for(int e = 0; e < size; e++){ // Compare grabbed number to every other number
-                if(i == e) {continue;} // If the index is the same, continue on (wont look at next if statement)
-                if(nums[i] + nums[e] == target){ // Brute force to check each number to see if it adds up to target
-                    output.push_back(i); // Store the index of the first number
-                    output.push_back(e); // Store the index of the second number
-                    done = true; // Save a variable that denotes the code as done
+        for(unsigned int orig = 0; orig < count; orig++) 
+        { 
+            for(unsigned int comp = 0; comp < count; comp++)
+            { 
+                // return indices of the two numbers such that they add up to target.
+                // and you may not use the same element twice.
+                if((nums[orig] + nums[comp] == target) && (orig != comp))
+                { 
+                    indices.push_back(orig); 
+                    indices.push_back(comp);
+                    // You may assume that each input would have exactly one solution 
+                    return indices;
                 }
             }
-            if(done == true) {break;} // Check to see if we found everything we need
         }
-        return output; // Return the computed output
+        return indices; // Should never get hit as we should always have one solution
     }
 };
